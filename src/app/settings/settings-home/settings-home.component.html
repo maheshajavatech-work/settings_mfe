@@ -1,0 +1,42 @@
+<div class="settings-container">
+  <h1>Settings</h1>
+  
+  <div class="settings-card">
+    <h2>Profile Information</h2>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter your name" [(ngModel)]="profileName">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" [(ngModel)]="profileEmail">
+    </div>
+  </div>
+
+  <div class="settings-card">
+    <h2>Notifications</h2>
+    <div class="toggle-row">
+      <span>Enable Notifications</span>
+      <label class="toggle">
+        <input type="checkbox" [(ngModel)]="notificationsEnabled">
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="settings-card">
+    <h2>Theme</h2>
+    <div class="theme-selector">
+      <div class="theme-option" [class.active]="selectedTheme === 'light'" (click)="selectedTheme = 'light'">
+        <div class="theme-preview light"></div>
+        <span>Light</span>
+      </div>
+      <div class="theme-option" [class.active]="selectedTheme === 'dark'" (click)="selectedTheme = 'dark'">
+        <div class="theme-preview dark"></div>
+        <span>Dark</span>
+      </div>
+    </div>
+  </div>
+
+  <button class="save-button" (click)="saveSettings()">Save Changes</button>
+</div>
