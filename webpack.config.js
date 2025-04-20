@@ -12,4 +12,12 @@ module.exports = withModuleFederationPlugin({
     ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
   },
 
+  // Adding the library options with scriptType to fix the import.meta error
+  library: { type: 'module' },
+  // Set the correct script type for the remote entry
+  remotes: {},
+  filename: 'remoteEntry.js',
+  // This is the correct place for scriptType
+  runtime: false
+
 });
